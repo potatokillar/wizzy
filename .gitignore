@@ -1,0 +1,8 @@
+app/node_modules/
+app/dist/
+app/data/db/*.sqlite
+app/data/secrets/*.json
+app/data/logs/
+app/data/sessions/
+app/data/market/
+app/data/state/
