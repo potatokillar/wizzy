@@ -1,12 +1,12 @@
-# AI Trader Terminal App
+# Wizzy App
 
-This repository contains the application code for the AI Trader Terminal.
+Application code for [Wizzy](../README.md) — an AI-powered crypto trading terminal for OKX.
 
 ## Scope
 
-- source code
-- tests
-- build configuration
-- local runtime assets owned by the app
+- Source code
+- Tests
+- Build configuration
+- Local runtime assets
 
-Project-level design and implementation planning live in the parent repository.
+Design and planning docs live in the parent repository.

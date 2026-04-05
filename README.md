@@ -1,20 +1,29 @@
-# AI Trader Terminal Project
+# Wizzy
 
-This repository is the project management and design home for the AI Trader Terminal.
+> AI-powered crypto trading terminal for OKX
+
+Wizzy is a local-first, terminal-native trading assistant that behaves like a professional duty trader: it monitors markets, explains trade ideas, asks for confirmation when required, executes within account permissions when allowed, and continuously reports, tracks, and reviews its own actions.
+
+## Features
+
+- Natural language chat as the main control surface
+- Reminder mode (suggest only) and Duty trader mode (auto-execute within limits)
+- OKX spot and perpetual futures support
+- Long-running strategies + ad-hoc monitoring tasks
+- Structured audit history for every decision
 
 ## Structure
 
-- `docs/` — specifications, plans, architecture, product docs, milestones
-- `decisions/` — ADRs and decision records
-- `research/` — market, product, and technical research
-- `app/` — implementation code repository
+## Structure
 
-## Current artifacts
+- `docs/` — specifications, plans, architecture
+- `app/` — source code, tests, build, runtime assets
 
-- Spec: `docs/superpowers/specs/2026-03-26-ai-trader-terminal-design.md`
-- Plan: `docs/superpowers/plans/2026-03-26-ai-trader-terminal-mvp.md`
+## Documentation
 
-## Working model
+- [Design Spec](docs/superpowers/specs/2026-03-26-ai-trader-terminal-design.md)
+- [MVP Plan](docs/superpowers/plans/2026-03-26-ai-trader-terminal-mvp.md)
 
-- Outer repository: design, planning, management
-- `app/` repository: source code, tests, build, runtime assets
+## Status
+
+🚧 Early development — project scaffolding in progress.
