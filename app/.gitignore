@@ -1,0 +1,16 @@
+node_modules/
+dist/
+data/config/*
+!data/config/.gitkeep
+data/db/*
+!data/db/.gitkeep
+data/secrets/*
+!data/secrets/.gitkeep
+data/logs/*
+!data/logs/.gitkeep
+data/sessions/*
+!data/sessions/.gitkeep
+data/market/*
+!data/market/.gitkeep
+data/state/*
+!data/state/.gitkeep
