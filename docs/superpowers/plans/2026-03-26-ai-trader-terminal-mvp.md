@@ -6,13 +6,19 @@
 
 **Architecture:** Build a new TypeScript/Node.js application with clear Interface, Application, Domain, and Infrastructure boundaries. Keep the TUI thin and route all trading behavior through structured services: session context, market context, task/strategy runtimes, proposal generation, risk evaluation, and execution/audit persistence. Use file-based config plus SQLite operational history so the MVP is local-first but ready to grow into remote or multi-interface deployment later.
 
-**Tech Stack:** TypeScript, Node.js 22+, pnpm, Vitest, SQLite (better-sqlite3), Zod, **Ink (React-based TUI)**, `ink-testing-library`, OKX REST/WebSocket client, typed event bus
+**Tech Stack:** TypeScript, Node.js 22+, pnpm, Vitest, SQLite (`node:sqlite` in the first MVP implementation), Zod, **Ink (React-based TUI)**, `ink-testing-library`, OKX REST/WebSocket client, typed event bus
 
 ---
 
 ## Proposed File Structure
 
 All application code in this plan lives under the nested code repository: `app/`.
+
+Path convention for the remainder of this plan:
+
+- repository-level paths are written with the `app/` prefix
+- once inside an implementation task, any unprefixed path such as `src/...`, `tests/...`, `data/...`, `package.json`, or `tsconfig.json` is relative to the `app/` directory
+- shell commands such as `pnpm vitest ...` are expected to run from `app/` unless the command explicitly targets a repository-root path
 
 **App root files**
 - Create: `app/package.json` — scripts and dependencies
@@ -109,6 +115,26 @@ All application code in this plan lives under the nested code repository: `app/`
 - If this directory is not a git repository, skip commit steps and continue with the implementation/testing steps.
 - Every commit step below should be read as **"Commit (optional if git is initialized)"** even where the heading is abbreviated to `Commit`.
 
+## Documentation Sync Policy
+
+- The application lives in `app/`; design and planning documents live in `docs/`.
+- Any change to trading behavior, architecture, runtime flow, risk rules, persistence shape, or TUI behavior must update the relevant docs in the same change.
+- The repository installs a local pre-commit hook that blocks commits with staged `app/` changes unless staged `docs/` changes are also present.
+- The hook is a guardrail only. It does not replace updating the correct design or plan sections with accurate content.
+- Project-level agent instructions are loaded from `AGENTS.md`.
+- Code changes should include concise comments for non-trivial logic and important invariants.
+
+Detailed implementation design references:
+
+- `docs/superpowers/specs/2026-04-06-ai-trader-execution-domain-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-chat-parsing-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-minimal-tui-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-order-selection-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-okx-integration-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-persistence-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-startup-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-tui-state-design.md`
+
 ## Implementation Notes
 
 - Keep the MVP single-user and local-only. Do not add auth, multi-user state, or remote APIs in this plan.
@@ -123,14 +149,14 @@ All application code in this plan lives under the nested code repository: `app/`
 
 **Files:**
 - Create: `docs/` (already exists)
-- Create: `data/` (runtime data root)
-- Create: `data/config/`
-- Create: `data/secrets/`
-- Create: `data/db/`
-- Create: `data/logs/`
-- Create: `data/sessions/`
-- Create: `data/market/`
-- Create: `data/state/`
+- Create: `app/data/` (runtime data root)
+- Create: `app/data/config/`
+- Create: `app/data/secrets/`
+- Create: `app/data/db/`
+- Create: `app/data/logs/`
+- Create: `app/data/sessions/`
+- Create: `app/data/market/`
+- Create: `app/data/state/`
 
 - [ ] **Step 1: Ensure this directory is a git repository (optional but recommended)**
 
@@ -142,13 +168,18 @@ Run: `git init`
 
 - [ ] **Step 2: Create the runtime data directories**
 
-Run: `mkdir -p data/config data/secrets data/db data/logs data/sessions data/market data/state`
+Run: `mkdir -p app/data/config app/data/secrets app/data/db app/data/logs app/data/sessions app/data/market app/data/state`
 Expected: directories exist.
 
-- [ ] **Step 3: Commit (optional)**
+- [ ] **Step 3: Install the local documentation-sync hook**
+
+Run: `bash scripts/setup-githooks.sh`
+Expected: git `core.hooksPath` points to `.githooks` and the pre-commit hook is executable.
+
+- [ ] **Step 4: Commit (optional)**
 
 ```bash
-git add data/
+git add app/data .githooks scripts/setup-githooks.sh README.md docs/
 git commit -m "chore: add local runtime directory layout"
 ```
 

@@ -6,6 +6,23 @@ AI Trader Terminal is a local-first, terminal-native crypto trading platform foc
 
 The first target market is OKX with support for both spot and perpetual futures. The system is pure TUI, uses chat as the primary interaction surface, supports both rule-based strategies and ad hoc user tasks, and uses the trading account as the primary boundary for permissions and risk.
 
+Repository boundary for implementation:
+
+- application code, tests, build config, and runtime assets live under `app/`
+- design and planning documents live under `docs/`
+- code and documentation must be updated together when behavior or architecture changes
+
+Detailed implementation design documents:
+
+- `docs/superpowers/specs/2026-04-06-ai-trader-execution-domain-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-chat-parsing-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-minimal-tui-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-order-selection-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-okx-integration-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-persistence-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-startup-design.md`
+- `docs/superpowers/specs/2026-04-06-ai-trader-tui-state-design.md`
+
 ## Product Goals
 
 The system should let a user:
@@ -93,6 +110,10 @@ The AI should use a professional trader tone:
 ### Primary interface
 
 The primary interface is a pure TUI multi-panel terminal. Chat is the central workflow, but the user also wants persistent panels for state visibility.
+
+Implementation note:
+
+- the first interactive milestone may ship as a minimal transcript-driven TUI before the full multi-panel workspace is built
 
 ## Core System Model
 
@@ -350,14 +371,12 @@ Accounts are the top-level operational boundary. Each account should have:
 
 - account name
 - exchange identity (OKX in MVP)
-- allowed market types (spot, perpetual)
 - runtime mode (reminder or duty trader)
 - execution permissions
 - risk policy
-- allowed symbols list
-- allowed market types
 - API credential binding and connection status
 - enabled / disabled state
+- optional account-level session-boundary override; otherwise inherit the global default
 
 ### Required risk policy fields
 
@@ -421,6 +440,14 @@ The system must enforce the following:
 3. no automatic execution for accounts missing required risk configuration
 4. every action path must be auditable
 5. all rejections must be explicit and human-readable
+
+### Documentation synchronization
+
+The implementation process must treat documentation as part of the product surface.
+
+- changes under `app/` that alter behavior, architecture, data shape, operator workflow, or safety boundaries must update the relevant docs under `docs/` in the same change
+- design and plan documents must remain mutually consistent after edits
+- a local git pre-commit hook may enforce the minimum rule that staged `app/` changes require staged `docs/` changes
 
 ### Out-of-scope dangerous capabilities for MVP
 

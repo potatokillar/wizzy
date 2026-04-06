@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "market_freshness_ms": 15000,
+  "default_account": null,
+  "session_boundary_utc": "00:00:00Z"
+}

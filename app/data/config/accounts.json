@@ -1,0 +1,38 @@
+[
+  {
+    "id": "alpha",
+    "name": "Alpha OKX",
+    "exchange": "okx",
+    "enabled": true,
+    "secret_ref": "okx-alpha",
+    "connection_status": "disconnected",
+    "mode": "reminder",
+    "perpetual_settings": {
+      "margin_mode": "cross",
+      "position_mode": "one_way"
+    },
+    "execution_permissions": {
+      "can_open_position": true,
+      "can_increase_position": true,
+      "can_reduce_position": true,
+      "can_close_position": true,
+      "can_cancel_order": true,
+      "can_modify_protection_orders": true
+    },
+    "risk_policy": {
+      "max_position_notional_usd": 1000,
+      "max_order_notional_usd": 500,
+      "max_account_gross_exposure_usd": 2500,
+      "max_per_trade_loss_usd": 50,
+      "max_leverage": 3,
+      "daily_realized_loss_limit_usd": 150,
+      "allowed_symbols": ["BTC-USDT", "ETH-USDT", "BTC-USDT-SWAP", "ETH-USDT-SWAP"],
+      "allowed_market_types": ["spot", "perpetual"],
+      "cooldown_seconds_after_close": 300,
+      "max_open_positions": 3,
+      "require_stop_loss_for_new_positions": true,
+      "allow_overnight_hold": false,
+      "duty_trader_stop_loss_override": false
+    }
+  }
+]

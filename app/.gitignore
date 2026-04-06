@@ -2,6 +2,10 @@ node_modules/
 dist/
 data/config/*
 !data/config/.gitkeep
+!data/config/app.json
+!data/config/accounts.json
+!data/config/strategies.json
+!data/config/ui.json
 data/db/*
 !data/db/.gitkeep
 data/secrets/*
