@@ -1,5 +1,7 @@
 # Wizzy App
 
+![Wizzy Logo](../assets/brand/logo-horizontal.svg)
+
 Application code for [Wizzy](../README.md) — an AI-powered crypto trading terminal for OKX.
 
 ## Scope

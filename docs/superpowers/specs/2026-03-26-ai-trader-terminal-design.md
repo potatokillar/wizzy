@@ -10,6 +10,7 @@ Repository boundary for implementation:
 
 - application code, tests, build config, and runtime assets live under `app/`
 - design and planning documents live under `docs/`
+- shared brand assets such as logo files live under `assets/brand/` and may be referenced by both repository-level and app-level README files
 - code and documentation must be updated together when behavior or architecture changes
 
 Detailed implementation design documents:
