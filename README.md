@@ -1,5 +1,7 @@
 # Wizzy
 
+![Wizzy Logo](assets/brand/logo-horizontal.svg)
+
 > AI-powered crypto trading terminal for OKX
 
 [中文](#中文) | [English](#english)

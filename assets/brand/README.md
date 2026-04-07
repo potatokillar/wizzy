@@ -2,6 +2,13 @@
 
 This directory is the canonical location for Wizzy logo files, app icons, and derived brand assets.
 
+## Current Files
+
+The repository currently includes:
+
+- `assets/brand/logo-symbol.svg`
+- `assets/brand/logo-horizontal.svg`
+
 ## Selected Direction
 
 The current logo direction is:

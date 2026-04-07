@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Wizzy horizontal logo</title>
+  <desc id="desc">Wizzy wordmark with its abstract upward brand symbol.</desc>
+  <rect width="1200" height="320" fill="#ffffff"/>
+  <g transform="translate(24 32)">
+    <path
+      d="M36 78c0-7.732 6.268-14 14-14h54c3.713 0 7.274 1.474 9.899 4.101l14 14c5.467 5.466 5.467 14.332 0 19.798l-44 44c-5.467 5.467-14.332 5.467-19.799 0L40.101 121.9A14 14 0 0 1 36 112V78Z"
+      fill="#000000"
+    />
+    <path
+      d="M128 78c0-7.732 6.268-14 14-14h29.201c3.713 0 7.274 1.474 9.899 4.101l30.799 30.8c5.467 5.466 5.467 14.332 0 19.798l-24 24c-5.467 5.467-14.332 5.467-19.799 0l-35.999-36A14 14 0 0 1 128 96.8V78Z"
+      fill="#000000"
+    />
+    <path
+      d="M104.1 138.101c5.467-5.467 14.332-5.467 19.799 0l44 44c5.467 5.467 5.467 14.332 0 19.799L153.9 215.9A14 14 0 0 1 144 220h-32a14 14 0 0 1-9.899-4.101L68.101 181.9c-5.467-5.467-5.467-14.332 0-19.799l36-36Z"
+      fill="#000000"
+    />
+  </g>
+  <text
+    x="300"
+    y="216"
+    fill="#000000"
+    font-family="Inter, SF Pro Display, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="176"
+    font-weight="800"
+    letter-spacing="-8"
+  >Wizzy</text>
+</svg>
